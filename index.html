@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar X | حاسبة الطاقة الشمسية الاحترافية</title>
+    <meta name="description" content="تطبيق Solar X — حاسبة الطاقة الشمسية الاحترافية: احسب احتياجات منظومتك الشمسية بدقة هندسية، قِس زاوية تركيب الألواح، واطّلع على دليل معدات السوق العراقية. حمّله الآن مجاناً v1.2.2.">
+    <meta name="theme-color" content="#1e3a8a">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_IQ">
+    <meta property="og:site_name" content="Digital Link IQ">
+    <meta property="og:title" content="Solar X | حاسبة الطاقة الشمسية الاحترافية">
+    <meta property="og:description" content="احسب احتياجات منظومتك الشمسية بدقة هندسية — حمّل التطبيق الآن مجاناً.">
+    <meta property="og:image" content="https://digital-link-iq.github.io/logo.png">
+    <meta property="og:url" content="https://digital-link-iq.github.io/SolarX/">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Solar X | حاسبة الطاقة الشمسية الاحترافية">
+    <meta name="twitter:description" content="احسب احتياجات منظومتك الشمسية بدقة هندسية — حمّل التطبيق الآن مجاناً.">
+    <meta name="twitter:image" content="https://digital-link-iq.github.io/logo.png">
+    <!-- الأيقونة -->
+    <link rel="icon" type="image/png" href="https://digital-link-iq.github.io/logo.png">
+    <link rel="apple-touch-icon" href="https://digital-link-iq.github.io/logo.png">
+    <!-- خط القاهرة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; text-align: center; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 60px 20px 90px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 20px;
+            border-radius: 26px;
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+        }
+        h1 { margin: 10px 0; font-size: 2.5em; font-weight: 900; }
+        .hero p { color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 1.1em; }
+
+        .card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            max-width: 450px;
+            margin: -50px auto 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1e3a8a;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(30,58,138,0.3);
+        }
+        .btn:hover { background: #2563eb; transform: translateY(-3px); }
+        .btn svg { margin-left: 10px; }
+
+        /* شرح التثبيت */
+        .steps { max-width: 450px; margin: 0 auto 40px; padding: 0 20px; }
+        .steps h2 { font-size: 1.3rem; color: #1e3a8a; margin-bottom: 15px; font-weight: 700; }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            text-align: right;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step p { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+        /* المميزات */
+        .features {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        .feature-item {
+            background: #eff6ff;
+            padding: 24px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #1e40af;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.6;
+        }
+        .feature-item svg { color: #2563eb; flex-shrink: 0; }
+
+        .footer { margin-top: 50px; padding: 20px; font-size: 0.8em; color: #94a3b8; }
+
+        /* Media Queries للاستجابة */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .features { gap: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 45px 12px 75px; }
+            h1 { font-size: 1.9em; }
+            .hero p { font-size: 1em; }
+            .card { margin: -40px auto 30px; max-width: 92%; padding: 30px 14px; }
+            .btn { padding: 15px 25px; font-size: 1.05em; }
+            .features { grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px 12px; }
+            .steps { padding: 0 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="app-icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </div>
+        <h1>تطبيق Solar X</h1>
+        <p>حاسبة الطاقة الشمسية الاحترافية — صمّم منظومتك الشمسية بدقة هندسية</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <a href="https://github.com/Digital-Link-IQ/SolarX/releases/download/v1.2.2/Solar.X.apk" class="btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                تحميل التطبيق (APK) v1.2.2
+            </a>
+        </section>
+
+        <section class="steps" aria-labelledby="install-title">
+            <h2 id="install-title">كيفية تثبيت التطبيق؟</h2>
+            <div class="step">
+                <span class="step-num">1</span>
+                <p>اضغط زر التحميل بالأعلى وانتظر حتى يكتمل تنزيل ملف APK.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">2</span>
+                <p>عند ظهور تنبيه الأمان، اختر "السماح" أو فعّل "التثبيت من مصادر غير معروفة" لتطبيق المتصفح.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">3</span>
+                <p>افتح الملف الذي تم تنزيله واضغط "تثبيت"، ثم استمتع بالتطبيق.</p>
+            </div>
+        </section>
+
+        <section class="features" aria-label="مميزات التطبيق">
+            <div class="feature-item">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                حساب دقيق للمنظومة: الألواح والعاكس والبطاريات والكابلات
+            </div>
+            <div class="feature-item">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                قياس زاوية تركيب الألواح بمستشعرات هاتفك
+            </div>
+            <div class="feature-item">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                دليل معدات الطاقة الشمسية بالسوق العراقية
+            </div>
+            <div class="feature-item">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                تقارير PDF احترافية قابلة للمشاركة
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        تم التطوير بواسطة Digital Link IQ <br>
+        © 2025 جميع الحقوق محفوظة
+    </footer>
+</body>
+</html>

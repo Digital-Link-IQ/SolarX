@@ -1,7 +1,7 @@
 {
-  "latestVersionCode": 7,
-  "latestVersionName": "1.2.2",
+  "latestVersionCode": 8,
+  "latestVersionName": "1.2.3",
   "downloadUrl": "https://digital-link-iq.github.io/SolarX/",
-  "forceUpdate": false,
+  "forceUpdate": true,
   "updateMessage": "يتوفر إصدار جديد من تطبيق Solar X — يُنصح بالتحديث للاستفادة من أحدث الميزات والتحسينات."
 }
